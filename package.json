@@ -1,0 +1,16 @@
+{
+  "name": "web-pa2",
+  "version": "1.0.0",
+  "description": "Aplicacion web tipo tienda con navegacion Maestro-Detalle",
+  "main": "app.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/styles.css -o ./src/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}
