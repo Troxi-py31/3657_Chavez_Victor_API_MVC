@@ -11,6 +11,14 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "nodemon": "^3.1.14",
     "tailwindcss": "^3.4.19"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "msnodesqlv8": "^6.2.2",
+    "mssql": "^12.8.1"
   }
 }
