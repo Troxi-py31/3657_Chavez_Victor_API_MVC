@@ -77,13 +77,13 @@ CREATE TABLE detalle_pedido (
 );
 GO
 
--- ÍNDICES (REQUISITO RÚBRICA)
+-- ÍNDICES DE OPTIMIZACIÓN
 CREATE INDEX idx_producto_codigo ON productos(codigo_parte);
 CREATE INDEX idx_producto_nombre ON productos(nombre_producto);
 CREATE INDEX idx_usuario_email ON usuarios(email);
 GO
 
--- PROCEDIMIENTO ALMACENADO (REQUISITO RÚBRICA)
+-- PROCEDIMIENTO ALMACENADO 
 CREATE PROCEDURE sp_registrar_producto
     @codigo_parte VARCHAR(50),
     @nombre NVARCHAR(150),
