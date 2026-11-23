@@ -1,52 +1,54 @@
-# CHAVEZCARS - Landing Page & Catálogo Web
+# CHAVEZCARS - API REST con Arquitectura MVC
 
-Este proyecto es un prototipo estático (mockup) desarrollado para el **Producto Académico 2 (PA2)**. Consiste en una Landing Page para la empresa **CHAVEZCARS**, especializada en el rubro automotriz, la venta de repuestos y soporte en *Fuel Injection*.
+Proyecto desarrollado para el 
+**Proceso de Aprendizaje 4 (PA4)** del curso **Programación Web Básica (NRC 3657)**
+ISIL (Periodo 2026-20).
 
-## Tecnologías Utilizadas
-
-- **HTML5**: Estructura semántica de la página.
-- **Tailwind CSS (v3)**: Framework de CSS orientado a clases de utilidad.
-- **Node.js & npm**: Entorno de ejecución y gestor de paquetes para la compilación de Tailwind CSS CLI.
+Consiste en una capa de servicios **API REST** construida bajo el patrón arquitectónico **Modelo - Vista - Controlador (MVC)** con **Node.js**, **Express** y **SQL Server**, orientada a la gestión comercial y de inventario de repuestos de EFI automotriz para **CHAVEZCARS**.
 
 ---
 
-## Estructura del Proyecto
+## Tecnologías Utilizadas
+
+* **Entorno de ejecución:** Node.js
+* **Framework Backend:** Express
+* **Motor de Base de Datos:** Microsoft SQL Server Express (`chavezcars_db`)
+* **Conector SQL:** `mssql` + `msnodesqlv8` (Autenticación de Windows / ODBC)
+* **Variables de entorno:** `dotenv`
+* **Pruebas de API:** Thunder Client / Postman
+
+---
+
+## Estructura del Proyecto (Arquitectura MVC)
 
 ```text
-WEB-PA2/
-├── node_modules/
-├── src/
-│   ├── img/                   # Imágenes del catálogo y local
-│   ├── index.html             # Estructura principal de la Landing Page
-│   ├── styles.css             # Directivas de entrada de Tailwind CSS
-│   └── output.css             # CSS final compilado por Tailwind CLI
-├── package.json               # Configuración de dependencias npm
-├── tailwind.config.js         # Configuración de rutas y paleta de colores
-└── README.md                  # Instrucciones de ejecución del proyecto
-
-Instrucciones para Ejecutar el Proyecto
-Sigue estos pasos para visualizar el proyecto en local:
-
-1. Instalación de dependencias
-Abre la terminal en la raíz del proyecto e instala los paquetes necesarios:
-
-Bash
-npm install
-
-2. Compilación de Tailwind CSS
-Para compilar el archivo CSS de entrada (src/styles.css) hacia el archivo final (src/output.css), ejecuta:
-
-Bash
-npx tailwindcss -i ./src/styles.css -o ./src/output.css --watch
-
-3. Visualización de la página
-Abre el archivo src/index.html en tu navegador de preferencia o mediante la extensión Live Server en VS Code.
-
-Contenido e Información Institucional
-Empresa: CHAVEZCARS
-
-Especialidad: Fuel Injection, sensores OEM e importación directa (China/Brasil).
-
-Dirección: Ca. Las Prensas 230 - Independencia, Lima.
-
-Contacto: Victor31chc@gmail.com | (+51) 935-240-931
+3657_Chavez_Victor_API_MVC/
+├── config/
+│   └── db.js                        # Configuración y pool de conexión a SQL Server
+├── controllers/                     # Lógica de negocio, validaciones y códigos HTTP
+│   ├── categoriaController.js
+│   ├── detallePedidoController.js
+│   ├── pedidoController.js
+│   ├── productoController.js
+│   ├── proveedorController.js
+│   └── usuarioController.js
+├── models/                          # Consultas SQL parametrizadas (CRUD)
+│   ├── categoriaModel.js
+│   ├── detallePedidoModel.js
+│   ├── pedidoModel.js
+│   ├── productoModel.js
+│   ├── proveedorModel.js
+│   └── usuarioModel.js
+├── routes/                          # Definición de endpoints REST por módulo
+│   ├── categoriaRoutes.js
+│   ├── detallePedidoRoutes.js
+│   ├── pedidoRoutes.js
+│   ├── productoRoutes.js
+│   ├── proveedorRoutes.js
+│   └── usuarioRoutes.js
+├── sql/
+│   └── script_base_datos_chavezcars.sql  # Script DDL, índices, SP y datos de prueba
+├── .env.example                     # Plantilla de variables de entorno
+├── .gitignore                       # Exclusión de node_modules y .env
+├── package.json
+└── server.js                        # Punto de entrada del servidor Express
